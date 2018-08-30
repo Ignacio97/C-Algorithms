@@ -32,17 +32,17 @@ bool isPalindrome(const char *str);
 
 /******* MAIN *********/
 int main(int argc, char const *argv[]) {
-  char cad[N];
+        char cad[N];
 
 
-  printf("%s","Enter a word:" );
-  setbuf(stdin,NULL);
-  scanf("%s",cad);
-  printf("%s reversed is: %s\n",cad,strReverse(cad) );
+        printf("%s","Enter a word:" );
+        setbuf(stdin,NULL);
+        scanf("%s",cad);
+        printf("%s reversed is: %s\n",cad,strReverse(cad) );
 
-  isPalindrome(cad) ? printf("%s\n","Palindrome" ) : printf("%s\n","not palindrome" );
+        isPalindrome(cad) ? printf("%s\n","Palindrome" ) : printf("%s\n","not palindrome" );
 
-  return EXIT_SUCCESS;
+        return EXIT_SUCCESS;
 }
 /******* ENDMAIN *********/
 
@@ -60,22 +60,22 @@ stack newStack(const int size){
 
 //Prints in screen an error message then ends the program.
 void error(const int value) {
-  switch (value) {
-    case 1:
-    printf("%s\n","Error!, Empty Stack!!");
-    break;
-  }
-  exit(EXIT_FAILURE);
+        switch (value) {
+        case 1:
+                printf("%s\n","Error!, Empty Stack!!");
+                break;
+        }
+        exit(EXIT_FAILURE);
 }
 
 //Returns true is stack is full,, otherwise false.
 bool isFull(const stack stk){
-  return stk.top == (stk.size - 1);
+        return stk.top == (stk.size - 1);
 }
 
 //Returns true is stack is empty, otherwise false.
 bool isEmpty(const stack stk){
-  return (stk.top == -1);
+        return (stk.top == -1);
 }
 
 //Add an element to the stack.
@@ -87,43 +87,43 @@ void push(stack *ptr,const dataType value ) {
 dataType pop(stack *ptr){
         dataType aux=0;
 
-      ( !(isEmpty((stack)*ptr)) ) ? (aux = (ptr->array[(ptr->top)--])) : error(EXIT_FAILURE);
+        ( !(isEmpty((stack)*ptr)) ) ? (aux = (ptr->array[(ptr->top)--])) : error(EXIT_FAILURE);
 
         return aux;
 }
 
 //Returns the top element without removing it from the stack.
 dataType peek(stack *ptr){
-    dataType aux=0;
+        dataType aux=0;
 
-  ( !(isEmpty((stack)*ptr)) ) ? aux = ptr->array[ptr->top] : error(EXIT_FAILURE);
+        ( !(isEmpty((stack)*ptr)) ) ? aux = ptr->array[ptr->top] : error(EXIT_FAILURE);
 
-  return aux;
+        return aux;
 }
 
 //Reverse a string using a stack, return the reversed string.
 char *strReverse(const char *str){
-  int i; //loop variable
-  int strSize = 1+strlen(str); //String size including '\0'.
-  char *rev = (char*) malloc(strSize * sizeof(char)); //reservin' space for the reversed string.
-  stack st = newStack(strSize-1); //stack
+        int i; //loop variable
+        int strSize = 1+strlen(str); //String size including '\0'.
+        char *rev = (char*) malloc(strSize * sizeof(char)); //reservin' space for the reversed string.
+        stack st = newStack(strSize-1); //stack
 
-  for ( i = 0; i < strSize-1 ; i++) push(&st,str[i]);
+        for ( i = 0; i < strSize-1; i++) push(&st,str[i]);
 
-  for ( i = 0; i < strSize-1 ; i++) rev[i]= pop(&st);
+        for ( i = 0; i < strSize-1; i++) rev[i]= pop(&st);
 
-  rev[strSize]='\0'; //Do not forget to put back the end of string character '\0'.
+        rev[strSize]='\0'; //Do not forget to put back the end of string character '\0'.
 
-return rev;
+        return rev;
 }
 
 //Returns true if the given string is palindrome, otherwise false.
 bool isPalindrome(const char *str){
-  bool aux;
+        bool aux;
 
-    (strcmp(str,strReverse(str)) == 0) ? (aux=true) : (aux=false);
+        (strcmp(str,strReverse(str)) == 0) ? (aux=true) : (aux=false);
 
-  return aux;
+        return aux;
 }
 
 /****END FUNTIONS*****/
