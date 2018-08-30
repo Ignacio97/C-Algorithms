@@ -1,6 +1,3 @@
-#ifndef myStack
-#define myStack
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -20,6 +17,7 @@ typedef struct  {
         int top;
 }stack;
 
+/**PROTOTYPES**/
 stack newStack(const int size);
 void error(const int value);
 bool isFull(const stack stk);
@@ -29,9 +27,27 @@ dataType pop(stack *ptr);
 dataType peek(stack *ptr);
 void clearStack(stack *ptr); // to implement.
 char *strReverse(const char *str);
-#endif
+bool isPalindrome(const char *str);
+/*****END PROTOTYPES******/
+
+/******* MAIN *********/
+int main(int argc, char const *argv[]) {
+  char cad[N];
 
 
+  printf("%s","Enter a word:" );
+  setbuf(stdin,NULL);
+  scanf("%s",cad);
+  printf("%s reversed is: %s\n",cad,strReverse(cad) );
+
+  isPalindrome(cad) ? printf("%s\n","Palindrome" ) : printf("%s\n","not palindrome" );
+
+  return EXIT_SUCCESS;
+}
+/******* ENDMAIN *********/
+
+
+/*****FUNTIONS*****/
 
 //Creates a new empty stack.
 stack newStack(const int size){
@@ -101,7 +117,7 @@ char *strReverse(const char *str){
 return rev;
 }
 
-//Returns true
+//Returns true if the given string is palindrome, otherwise false.
 bool isPalindrome(const char *str){
   bool aux;
 
@@ -109,3 +125,5 @@ bool isPalindrome(const char *str){
 
   return aux;
 }
+
+/****END FUNTIONS*****/
