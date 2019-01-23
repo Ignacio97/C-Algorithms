@@ -12,7 +12,7 @@ int main(int argc, char const *argv[]) {
         int size =sizeof(list)/sizeof(list[0]);
 
         printArray(list,size);
-        bubbleSort(list,size-1);
+        bubbleSort(list,size);
         printArray(list,size);
         return EXIT_SUCCESS;
 }
