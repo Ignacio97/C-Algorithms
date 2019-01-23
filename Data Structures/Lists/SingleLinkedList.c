@@ -111,7 +111,7 @@ void insertLast(Node **const list,const dataType data){
 }
 
 /*Inserts an element into the list in the given position,
-   if the given position is longer than the list length
+   if the given position is greater than the list length
    the element is inserted at the end.*/
 void insert(Node **const list,const dataType data,const unsigned int position) {
 
