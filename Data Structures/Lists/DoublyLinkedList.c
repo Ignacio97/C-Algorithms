@@ -135,24 +135,27 @@ void delete(Node **const list,const int index) {
         int pos=0;
         Node *l= *list;
 
-        if (index >= 0 && index < listLength(*list)) {
+        if (index >= 0 && index < listLength(*list) && !(*list)) {
 
+
+                while (pos++ < index)
+                        l = l->next;
 
                 if (!pos) {
                         *list = l->next;
                         if (!(*list))
                                 (*list)->prev = NULL;
                 }
-                else if(index+1 == listLength(*list)) {
-                        l->prev->next = NULL;
+
+                else if (!(l->next)) {
+                        (l->prev)->next = NULL;
                 }
                 else{
-                        while (pos++ < index)
-                                l = l->next;
-
                         (l->prev)->next = l->next;
                         (l->next)->prev = l->prev;
                 }
+
+
 
                 free(l);
         }
