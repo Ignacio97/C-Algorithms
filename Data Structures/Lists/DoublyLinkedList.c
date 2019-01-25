@@ -115,7 +115,7 @@ void insert(Node **const list,const dataType item,const int index) {
                 if (!index) {
                         insertFirst(list,item);
                 }
-                else if (index+1 == listLength(*list)) {
+                else if (index >= listLength(*list)) {
                         insertLast(list,item);
                 }
                 else{

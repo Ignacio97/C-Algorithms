@@ -121,7 +121,7 @@ void insert(Node **const list,const dataType data,const unsigned int position) {
                 insertFirst(list, data); //previously declared, go above.
         }
         /**If the position is greater than the list length then we insert the element at the end**/
-        else if(position > listLength(*list)) {
+        else if(position >= listLength(*list)) {
                 insertLast(list,data); //previously declared, go above.
         }
 
